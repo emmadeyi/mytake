@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+// API routes
+Route::resource('/api/takes', 'API\TakeController');
