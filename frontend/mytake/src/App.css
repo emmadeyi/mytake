@@ -1,4 +1,4 @@
-.App {
+/* .App {
   text-align: center;
 }
 
@@ -35,4 +35,98 @@
   to {
     transform: rotate(360deg);
   }
+} */
+
+.main-container {
+  margin-top: 80px;
+}
+
+.m-space-icon {
+  margin-right: 5px;
+}
+
+.m-space-icon:hover {
+  cursor: pointer;
+  color: #000;
+}
+
+.sidebar-header {
+  padding: 10px;
+  margin-left: 10px;
+  margin-top: 105px;
+  font-size: 20px;
+}
+
+.sidebar-link {
+  padding: 5px;
+  margin-left: 15px;
+}
+
+.head-4 {
+  font-size: 35px;
+}
+
+.head-barge {
+  font-size: 15px;
+}
+
+.blockqoute {
+  border-left: 5px solid rgba(136, 204, 243, 0.712);
+  padding: 20px 5px 20px 20px;
+  background-color: rgba(245, 246, 248, 0.828);
+}
+
+.comment {
+  border-right: 5px solid rgba(136, 204, 243, 0.712);
+  padding: 15px 15px 15px 25px;
+  background-color: rgba(245, 246, 248, 0.828);
+  text-align: justify;
+}
+
+.comment-user {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.flip-horizontal {
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.flip-vertical {
+  -moz-transform: scale(1, -1);
+  -webkit-transform: scale(1, -1);
+  -o-transform: scale(1, -1);
+  -ms-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+.comment-user img {
+  max-width: 50px;
+  max-height: auto;
+}
+
+.ck-editor__editable_inline {
+  min-height: 200px;
+}
+
+.take-view-icon {
+  font-size: 30px;
+}
+
+.mr-t-d {
+  margin-top: 10px !important;
+  margin-bottom: 10px !important;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.footer {
+  height: 300px;
+  max-height: 300px;
 }

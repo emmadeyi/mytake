@@ -17,7 +17,11 @@ class TakeController extends Controller
     public function index()
     {
         $takes = Take::all();
-        return response()->json($takes);
+        if($takes){
+            return response()->json(['data' => $takes, 'apiRedirect' => false]);
+        }else{
+            return response()->json(['data' => $takes, 'apiRedirect' => false]);
+        }
     }
 
     /**
@@ -48,25 +52,23 @@ class TakeController extends Controller
             return $response;
         }else{
             $take = new Take;
-            $status = 0;
-            $access = 0;
+            $take->status = false;
+            $take->access = false;
             $take->title = $request->title;
             $take->body = $request->body;
             //process img upploads and relationship
             //process video relationship
             //process site relationship
-            if ($request->status) {
-                $status = $request->status;
+            if ($request->status === "true") {
+                $take->status = true;
             }
-            if ($request->access) {
-                $access = $request->access;
+            if ($request->access === "true") {
+                $take->access = true;
             }
-            $take->status = $status;
-            $take->access = $access;
             if ($take->save()) {
-                return response()->json(['data' => $take, 'status' => $take->status, 'message' => 'Upload Successful']);
+                return response()->json(['data' => $take, 'apiRedirect' => true , 'status' => $take->status, 'message' => 'Upload Successful']);
             } else {
-                return response()->json(['data' => $take, 'status' => $take->status, 'message' => 'Error Occured']);
+                return response()->json(['data' => $take, 'apiRedirect' => false , 'status' => $take->status, 'message' => 'Error Occured']);
             }
         }
     }
@@ -80,7 +82,11 @@ class TakeController extends Controller
     public function show($id)
     {
         $take = Take::find($id);
-        return response()->json($take);
+        if($take){
+            return response()->json(['data' => $take, 'apiRedirect' => false]);
+        }else{
+            return response()->json(['data' => $take, 'apiRedirect' => false]);
+        }
     }
 
     /**
@@ -144,7 +150,11 @@ class TakeController extends Controller
      */
     public function destroy($id)
     {
-        $take = Take::destroy($id);
-        return response()->json($take);
+        $take = Take::find($id);
+        if(Take::destroy($take->id)){
+            return response()->json(['data' => $take, 'apiRedirect' => true]);
+        }else{
+            return response()->json(['data' => $take, 'apiRedirect' => false]);
+        }
     }
 }
